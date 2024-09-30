@@ -1,12 +1,12 @@
 import 'dart:io';
 
-import 'package:awady/core/helpers/assets.dart';
-import 'package:awady/core/helpers/extentions.dart';
-import 'package:awady/core/helpers/local_auth_utils.dart';
-import 'package:awady/core/routing/routes.dart';
-import 'package:awady/core/theming/colors.dart';
-import 'package:awady/core/theming/styles.dart';
-import 'package:awady/core/widgets/app_text_button.dart';
+import 'package:Awady/core/helpers/assets.dart';
+import 'package:Awady/core/helpers/extentions.dart';
+import 'package:Awady/core/helpers/local_auth_utils.dart';
+import 'package:Awady/core/routing/routes.dart';
+import 'package:Awady/core/theming/colors.dart';
+import 'package:Awady/core/theming/styles.dart';
+import 'package:Awady/core/widgets/app_text_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';

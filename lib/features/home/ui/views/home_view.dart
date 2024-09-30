@@ -1,11 +1,10 @@
 import 'dart:convert';
 
-import 'package:awady/core/helpers/extentions.dart';
-import 'package:awady/core/theming/colors.dart';
-import 'package:awady/features/home/data/phone_model.dart';
-import 'package:awady/features/home/ui/views/widgets/phone_grid_view.dart';
+import 'package:Awady/core/helpers/extentions.dart';
+import 'package:Awady/core/theming/colors.dart';
+import 'package:Awady/features/home/data/phone_model.dart';
+import 'package:Awady/features/home/ui/views/widgets/phone_grid_view.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'dart:io'; // for File operations
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';

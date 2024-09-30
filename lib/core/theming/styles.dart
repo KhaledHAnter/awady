@@ -1,5 +1,5 @@
-import 'package:awady/core/theming/colors.dart';
-import 'package:awady/core/theming/font_weights_helper.dart';
+import 'package:Awady/core/theming/colors.dart';
+import 'package:Awady/core/theming/font_weights_helper.dart';
 import 'package:flutter/material.dart';
 
 class Styles {

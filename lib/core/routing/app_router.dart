@@ -1,6 +1,8 @@
-import 'package:awady/core/routing/routes.dart';
-import 'package:awady/features/home/ui/views/home_view.dart';
-import 'package:awady/features/local_auth/ui/views/local_auth_view.dart';
+import 'package:Awady/core/routing/routes.dart';
+import 'package:Awady/features/home/data/phone_model.dart';
+import 'package:Awady/features/home/ui/views/home_view.dart';
+import 'package:Awady/features/local_auth/ui/views/local_auth_view.dart';
+import 'package:Awady/features/phone_details/ui/views/item_details_view.dart';
 import 'package:flutter/material.dart';
 
 class AppRouter {
@@ -16,6 +18,13 @@ class AppRouter {
       case Routes.homeView:
         return MaterialPageRoute(
           builder: (_) => const HomeView(),
+        );
+      case Routes.itemDetailView:
+        arrguments as PhoneModel;
+        return MaterialPageRoute(
+          builder: (_) => ItemDetailsView(
+            phone: arrguments,
+          ),
         );
 
       default:

@@ -1,6 +1,6 @@
-import 'package:awady/core/routing/app_router.dart';
-import 'package:awady/core/routing/routes.dart';
-import 'package:awady/core/theming/colors.dart';
+import 'package:Awady/core/routing/app_router.dart';
+import 'package:Awady/core/routing/routes.dart';
+import 'package:Awady/core/theming/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -21,7 +21,7 @@ class AwadyApp extends StatelessWidget {
           primaryColor: ColorsManager.mainBlue,
           scaffoldBackgroundColor: Colors.white,
         ),
-        initialRoute: Routes.homeView,
+        initialRoute: Routes.localAuthView,
         onGenerateRoute: appRouter.generateRoute,
       ),
     );
