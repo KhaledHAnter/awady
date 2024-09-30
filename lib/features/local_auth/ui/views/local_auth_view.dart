@@ -1,7 +1,9 @@
 import 'dart:io';
 
 import 'package:awady/core/helpers/assets.dart';
+import 'package:awady/core/helpers/extentions.dart';
 import 'package:awady/core/helpers/local_auth_utils.dart';
+import 'package:awady/core/routing/routes.dart';
 import 'package:awady/core/theming/colors.dart';
 import 'package:awady/core/theming/styles.dart';
 import 'package:awady/core/widgets/app_text_button.dart';
@@ -37,12 +39,11 @@ class _LocalAuthViewState extends State<LocalAuthView> {
 
   Future<void> _authenticate() async {
     bool authenticated = await auth.authenticate();
-    navigateOptions(authenticated);
+    if (authenticated) navigateOptions(authenticated);
   }
 
   void navigateOptions(bool authenticated) {
-    // context.pushNamedAndRemoveUntil(Routes.homeView,
-    //     predicate: (context) => false);
+    context.pushReplacementNamed(Routes.homeView);
   }
 
   @override
