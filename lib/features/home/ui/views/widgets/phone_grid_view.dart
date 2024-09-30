@@ -2,7 +2,6 @@ import 'package:Awady/core/helpers/extentions.dart';
 import 'package:Awady/core/routing/routes.dart';
 import 'package:Awady/core/theming/colors.dart';
 import 'package:Awady/features/home/data/phone_model.dart';
-import 'package:Awady/features/local_auth/ui/views/local_auth_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
