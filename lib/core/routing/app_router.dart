@@ -13,7 +13,7 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const LocalAuthView(),
         );
-      case Routes.homwView:
+      case Routes.homeView:
         return MaterialPageRoute(
           builder: (_) => const HomeView(),
         );

@@ -21,7 +21,7 @@ class AwadyApp extends StatelessWidget {
           primaryColor: ColorsManager.mainBlue,
           scaffoldBackgroundColor: Colors.white,
         ),
-        initialRoute: Routes.localAuthView,
+        initialRoute: Routes.homeView,
         onGenerateRoute: appRouter.generateRoute,
       ),
     );
