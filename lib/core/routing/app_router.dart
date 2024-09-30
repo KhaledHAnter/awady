@@ -1,4 +1,5 @@
 import 'package:awady/core/routing/routes.dart';
+import 'package:awady/features/home/ui/views/home_view.dart';
 import 'package:awady/features/local_auth/ui/views/local_auth_view.dart';
 import 'package:flutter/material.dart';
 
@@ -11,6 +12,10 @@ class AppRouter {
       case Routes.localAuthView:
         return MaterialPageRoute(
           builder: (_) => const LocalAuthView(),
+        );
+      case Routes.homwView:
+        return MaterialPageRoute(
+          builder: (_) => const HomeView(),
         );
 
       default:
