@@ -1,4 +1,4 @@
-import 'package:awady/core/theming/colors.dart';
+import 'package:Awady/core/theming/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
