@@ -104,6 +104,7 @@ class _HomeViewState extends State<HomeView> {
 
     String name = "";
     String priceText = "";
+    String description = "";
 
     // Show dialog for entering additional phone details
     showDialog(
@@ -115,6 +116,8 @@ class _HomeViewState extends State<HomeView> {
             mainAxisSize: MainAxisSize.min,
             children: [
               TextField(
+                autofocus: true,
+                textInputAction: TextInputAction.next,
                 decoration: const InputDecoration(labelText: 'Name'),
                 onChanged: (value) {
                   name = value;
@@ -123,8 +126,16 @@ class _HomeViewState extends State<HomeView> {
               TextField(
                 decoration: const InputDecoration(labelText: 'Price'),
                 keyboardType: TextInputType.number,
+                textInputAction: TextInputAction.next,
                 onChanged: (value) {
                   priceText = value;
+                },
+              ),
+              TextField(
+                textInputAction: TextInputAction.next,
+                decoration: const InputDecoration(labelText: 'Description'),
+                onChanged: (value) {
+                  description = value;
                 },
               ),
             ],
@@ -148,6 +159,7 @@ class _HomeViewState extends State<HomeView> {
                       image: savedImage,
                       price: price,
                       dateTime: DateTime.now(),
+                      description: description, // Save the description
                     ),
                   );
                 });

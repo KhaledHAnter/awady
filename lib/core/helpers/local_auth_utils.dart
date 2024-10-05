@@ -20,10 +20,9 @@ class LocalAuthUtils {
       return await auth.authenticate(
         localizedReason: Platform.isIOS
             ? "Scan your Face ID to authenticate"
-            : "Scan your fingerprint to authenticate",
+            : "Scan your fingerprint to authenticates",
         options: const AuthenticationOptions(
           stickyAuth: true,
-          biometricOnly: true,
         ),
       );
     } on PlatformException catch (e) {

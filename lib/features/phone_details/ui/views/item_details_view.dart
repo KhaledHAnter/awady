@@ -1,6 +1,7 @@
 import 'package:Awady/features/home/data/phone_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gap/gap.dart';
 import 'package:intl/intl.dart';
 
 class ItemDetailsView extends StatelessWidget {
@@ -56,7 +57,15 @@ class ItemDetailsView extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 16),
+                  Gap(16.h),
+                  Align(
+                    alignment: Alignment.center,
+                    child: Text(
+                      phone.description ?? "No description",
+                      style: const TextStyle(fontSize: 20, color: Colors.black),
+                    ),
+                  ),
+                  Gap(16.h),
                   Align(
                     alignment: Alignment.center,
                     child: Text(
