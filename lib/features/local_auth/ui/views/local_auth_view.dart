@@ -27,7 +27,8 @@ class _LocalAuthViewState extends State<LocalAuthView> {
   void initState() {
     super.initState();
     auth = LocalAuthUtils();
-    _checkBiometrics();
+
+    _authenticate();
   }
 
   Future<void> _checkBiometrics() async {
@@ -38,6 +39,7 @@ class _LocalAuthViewState extends State<LocalAuthView> {
   }
 
   Future<void> _authenticate() async {
+    await _checkBiometrics();
     bool authenticated = await auth.authenticate();
     if (authenticated) navigateOptions(authenticated);
   }
