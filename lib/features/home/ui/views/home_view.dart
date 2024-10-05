@@ -5,6 +5,7 @@ import 'package:Awady/core/theming/colors.dart';
 import 'package:Awady/features/home/data/phone_model.dart';
 import 'package:Awady/features/home/ui/views/widgets/phone_grid_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'dart:io'; // for File operations
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
@@ -126,6 +127,9 @@ class _HomeViewState extends State<HomeView> {
               TextField(
                 decoration: const InputDecoration(labelText: 'Price'),
                 keyboardType: TextInputType.number,
+                inputFormatters: [
+                  FilteringTextInputFormatter.digitsOnly,
+                ],
                 textInputAction: TextInputAction.next,
                 onChanged: (value) {
                   priceText = value;
@@ -185,7 +189,7 @@ class _HomeViewState extends State<HomeView> {
           actions: [
             TextButton(
               onPressed: () {
-                Navigator.of(ctx).pop(); // Close the dialog without deleting
+                ctx.pop(); // Close the dialog without deleting
               },
               child: const Text("Cancel"),
             ),
@@ -193,24 +197,24 @@ class _HomeViewState extends State<HomeView> {
               onPressed: () {
                 // Proceed to delete the item
                 setState(() {
-                  // Determine whether to delete from _phoneList or _filteredPhoneList
-                  PhoneModel phoneToDelete = _filteredPhoneList[index];
+                  if (_filteredPhoneList.isNotEmpty) {
+                    // Determine whether to delete from _phoneList or _filteredPhoneList
+                    PhoneModel phoneToDelete = _filteredPhoneList[index];
 
-                  // Remove the item from the main list
-                  _phoneList
-                      .removeWhere((phone) => phone.name == phoneToDelete.name);
+                    // Remove the item from the main list
+                    _phoneList.removeWhere(
+                        (phone) => phone.name == phoneToDelete.name);
 
-                  // Remove the item from the filtered list
-                  _filteredPhoneList.removeAt(index);
+                    // Remove the item from the filtered list
+                    _filteredPhoneList.removeAt(index);
+                  } else {
+                    _phoneList.removeAt(index);
+                  }
                 });
-
-                // Save the updated list to local storage
-                _savePhoneList();
-
-                // Reapply filter to update UI if there was a search query
+                _savePhoneList(); // Save the updated list after deleting
                 _filterPhones(_searchQuery);
 
-                Navigator.of(ctx).pop(); // Close the dialog after deleting
+                ctx.pop(); // Close the dialog after deleting
               },
               child: const Text("Delete"),
             ),
@@ -253,7 +257,6 @@ class _HomeViewState extends State<HomeView> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             child: TextField(
-              autofocus: false,
               decoration: InputDecoration(
                 labelText: 'Search Phones',
                 prefixIcon: const Icon(Icons.search),
