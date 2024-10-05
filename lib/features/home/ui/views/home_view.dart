@@ -212,7 +212,7 @@ class _HomeViewState extends State<HomeView> {
                   }
                 });
                 _savePhoneList(); // Save the updated list after deleting
-                _filterPhones(_searchQuery);
+                _filterPhones(_searchQuery); // Update the filtered list
 
                 ctx.pop(); // Close the dialog after deleting
               },
