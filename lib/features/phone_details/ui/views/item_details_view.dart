@@ -39,20 +39,34 @@ class ItemDetailsView extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Text(
-                        "Name: ${phone.name}",
-                        style: const TextStyle(
-                          fontSize: 28,
-                          fontWeight: FontWeight.bold,
+                      Expanded(
+                        child: FittedBox(
+                          fit: BoxFit.scaleDown,
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            "Name: ${phone.name}",
+                            textAlign: TextAlign.start,
+                            style: const TextStyle(
+                              fontSize: 28,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ),
                       ),
-                      const Spacer(),
-                      Text(
-                        "Price: ${phone.price} LE.",
-                        style: const TextStyle(
-                          fontSize: 24,
-                          color: Colors.green,
-                          fontWeight: FontWeight.bold,
+                      const Gap(16),
+                      Expanded(
+                        child: FittedBox(
+                          fit: BoxFit.scaleDown,
+                          alignment: Alignment.centerRight,
+                          child: Text(
+                            "Price: ${phone.price} LE.",
+                            textAlign: TextAlign.end,
+                            style: const TextStyle(
+                              fontSize: 24,
+                              color: Colors.green,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ),
                       ),
                     ],
@@ -62,6 +76,7 @@ class ItemDetailsView extends StatelessWidget {
                     alignment: Alignment.center,
                     child: Text(
                       phone.description ?? "No description",
+                      textAlign: TextAlign.center,
                       style: const TextStyle(fontSize: 20, color: Colors.black),
                     ),
                   ),

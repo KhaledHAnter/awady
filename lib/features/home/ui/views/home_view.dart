@@ -185,7 +185,7 @@ class _HomeViewState extends State<HomeView> {
           actions: [
             TextButton(
               onPressed: () {
-                ctx.pop(); // Close the dialog without deleting
+                Navigator.of(ctx).pop(); // Close the dialog without deleting
               },
               child: const Text("Cancel"),
             ),
@@ -193,10 +193,24 @@ class _HomeViewState extends State<HomeView> {
               onPressed: () {
                 // Proceed to delete the item
                 setState(() {
-                  _phoneList.removeAt(index);
+                  // Determine whether to delete from _phoneList or _filteredPhoneList
+                  PhoneModel phoneToDelete = _filteredPhoneList[index];
+
+                  // Remove the item from the main list
+                  _phoneList
+                      .removeWhere((phone) => phone.name == phoneToDelete.name);
+
+                  // Remove the item from the filtered list
+                  _filteredPhoneList.removeAt(index);
                 });
-                _savePhoneList(); // Save the updated list after deleting
-                ctx.pop(); // Close the dialog after deleting
+
+                // Save the updated list to local storage
+                _savePhoneList();
+
+                // Reapply filter to update UI if there was a search query
+                _filterPhones(_searchQuery);
+
+                Navigator.of(ctx).pop(); // Close the dialog after deleting
               },
               child: const Text("Delete"),
             ),
@@ -239,6 +253,7 @@ class _HomeViewState extends State<HomeView> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             child: TextField(
+              autofocus: false,
               decoration: InputDecoration(
                 labelText: 'Search Phones',
                 prefixIcon: const Icon(Icons.search),
